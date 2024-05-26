@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selamat Ulang Tahun</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+</head>
+<body>
+    <div id="kadoIn">
+        <img src="kado.png" alt="Kado" />
+        <p id="ket">Klik Kadonya!</p>
+    </div>
+    <div class="container" id="cardContainer" style="display: none;">
+        <div class="card">
+            <h1>Halo Mong🤣</h1>
+            <p id="birthdayMessage">Tunggu bentar yahhh, ntar ada yg lewat tuhhh!!
+                <br>
+                Volume Hp nya full in yahh, tpi jangan terlalu ribut dahhh ntar ganggu orang sana, heheheeeeee
+                <br>
+                Jangan takut dahh pokoknya, ga bakal kena virus kok🤣
+            </p>
+            <p id="countdown" style="display: none; font-size: 24px; font-weight: bold;"></p>
+            <button id="surpriseButton" onclick="showSurprise()" style="display: none;">Coba klik, hati hati jumpscare yahhh🤣</button>
+        </div>
+    </div>
+    <audio id="birthdayMusic" src="ulang-tahun.mp3" type="audio/mp3"></audio>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="script.js"></script>
+</body>
+</html>
