@@ -33,8 +33,8 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function showSurprise() {
-    const peachGomaGif1 = 'https://kawaiihoshi.com/wp-content/uploads/2023/07/1-peach-goma-animations.gif';
-    const peachGomaGif2 = 'https://kawaiihoshi.com/wp-content/uploads/2023/07/24-peach-goma-animations.gif';
+    const peachGomaGif1 = '1-peach-goma-animations.gif';
+    const peachGomaGif2 = '24-peach-goma-animations.gif';
     const peachGomaGif3 = 'https://media.tenor.com/v0FhxoZtDXsAAAAi/peach-goma-peach-and-goma.gif';
     const peachGomaGif4 = 'https://media.tenor.com/lertL2cfGTkAAAAi/peach-goma.gif';
     const peachGomaGif5 = 'https://media1.tenor.com/m/byEUveJyHIoAAAAd/peach-goma.gif';
