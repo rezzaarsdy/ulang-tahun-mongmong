@@ -2,34 +2,70 @@ document.addEventListener('DOMContentLoaded', function() {
     const music = document.getElementById('birthdayMusic');
     const kadoIn = document.getElementById('kadoIn');
     const cardContainer = document.getElementById('cardContainer');
-    const countdown = document.getElementById('countdown');
     const surpriseButton = document.getElementById('surpriseButton');
+    const countdown = document.getElementById('countdown');
 
     kadoIn.addEventListener('click', function() {
         music.play().then(() => {
-            // Sembunyikan kado dan tampilkan kartu ucapan
             kadoIn.style.display = 'none';
             cardContainer.style.display = 'block';
-
-            // Tampilkan hitungan mundur sebelum menampilkan tombol kejutan
-            let timeLeft = 5;
-            countdown.style.display = 'block';
-            countdown.innerText = timeLeft;
-
-            const countdownTimer = setInterval(function() {
-                timeLeft -= 1;
-                countdown.innerText = timeLeft;
-
-                if (timeLeft <= 0) {
-                    clearInterval(countdownTimer);
-                    countdown.style.display = 'none';
-                    surpriseButton.style.display = 'inline-block';
-                }
-            }, 2750);
+            startCountdown(5);
         }).catch(error => {
             console.error('Error playing music:', error);
         });
     });
+
+    function startCountdown(seconds) {
+        countdown.style.display = 'block';
+        let remaining = seconds;
+        countdown.innerText = remaining;
+
+        const interval = setInterval(() => {
+            remaining -= 1;
+            countdown.innerText = remaining;
+
+            if (remaining <= 0) {
+                clearInterval(interval);
+                countdown.style.display = 'none';
+                surpriseButton.style.display = 'inline-block';
+                createConfetti();
+            }
+        }, 2750);
+    }
+
+    function createConfetti() {
+        for (let i = 0; i < 100; i++) {
+            setTimeout(() => {
+                const confetti = document.createElement('div');
+                confetti.classList.add('confetti');
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+                document.body.appendChild(confetti);
+
+                setTimeout(() => {
+                    confetti.remove();
+                }, 3000);
+            }, i * 100); // Penundaan bertahap untuk efek jatuh satu per satu
+        }
+        setTimeout(createConfetti, 3000);
+    }
+
+    function createFirework() {
+        const firework = document.createElement('div');
+        firework.classList.add('firework');
+        firework.style.left = Math.random() * 100 + 'vw';
+        firework.style.top = Math.random() * 100 + 'vh';
+        firework.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+        document.body.appendChild(firework);
+    
+        setTimeout(() => {
+            firework.remove();
+        }, 1000); // Kembang api menghilang setelah 1 detik
+    }
+    
+    setInterval(createFirework, 2000); // Kembang api muncul setiap 2 detik
+    
+    
 });
 
 function showSurprise() {
