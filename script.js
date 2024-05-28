@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 surpriseButton.style.display = 'inline-block';
                 createConfetti();
             }
-        }, 2750);
+        }, 2800);
     }
 
     function createConfetti() {
@@ -76,6 +76,7 @@ function showSurprise() {
     const peachGomaGif5 = 'https://media1.tenor.com/m/byEUveJyHIoAAAAd/peach-goma.gif';
     const peachGomaGifGaaa = 'https://gifdb.com/images/high/sobbing-mochi-peach-sad-cat-crying-159nsavir4aye3va.webp';
     const peachGomaGifMauu = 'https://gifdb.com/images/high/cute-happy-spinning-peach-cat-a35m3lnfg3qmzbub.webp';
+    const peachGomaGifCry = 'https://media.tenor.com/-9xLl1bsQ7cAAAAi/peach-cat-crying-peach-goma.gif';
 
     Swal.fire({
         title: 'Selamat Ulang Tahun Mong!',
@@ -121,13 +122,23 @@ function showSurprise() {
                                             Swal.fire({
                                                 title: 'Nahhh Gitu donggg',
                                                 allowOutsideClick: false,
+                                                confirmButtonText: 'Next',
                                                 html: `<img src="${peachGomaGifMauu}" alt="Peach Goma" style="width: 100px; height: 100px;"><p>Kabarin di wa yahhh mau hadiah apa🤣</p>`,
+                                            }).then((result) => {
+                                                if (result.isConfirmed) {
+                                                    showFinalSwal();
+                                                }
                                             });
                                         } else {
                                             Swal.fire({
                                                 title: 'Hm, Baiklahhh',
                                                 allowOutsideClick: false,
+                                                confirmButtonText: 'Next',
                                                 html: `<img src="${peachGomaGifGaaa}" alt="Peach Goma" style="width: 100px; height: 100px;"><p>Hadiah nya tetap aku kirim yahh ntarr. konfirmasi aja lewat wa mau apa🤣</p>`,
+                                            }).then((result) => {
+                                                if (result.isConfirmed) {
+                                                    showFinalSwal();
+                                                }
                                             });
                                         }
                                     });
@@ -138,5 +149,17 @@ function showSurprise() {
                 }
             });
         }
+    });
+}
+
+function showFinalSwal() {
+    const peachGomaGifCry = 'https://media.tenor.com/-9xLl1bsQ7cAAAAi/peach-cat-crying-peach-goma.gif';
+
+    Swal.fire({
+        title: 'Malu Banget Sumpahhh🙈',
+        html: `<img src="${peachGomaGifCry}" alt="Peach Goma" style="width: 100px; height: 100px;">`,
+        showConfirmButton: false,
+        allowOutsideClick: false,
+        timer: 5000,
     });
 }
